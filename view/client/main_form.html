@@ -1,0 +1,66 @@
+
+
+<div class="row" style="margin-bottom:5px"> <!-- ROW 1 -->
+  
+  <div class="col-sm-3 col-xs-12" id="f_name_div" class='form-group'> 
+    <label><font color="darkred">*</font>Name</label> <!-- Prod_Name -->
+    <input type="text" class="form-control" id="f_name" required>
+  </div>               
+
+  <div class="col-sm-2 col-xs-12" id="f_contact_div" class='form-group'> 
+    <label><font color="darkred">*</font>Contact</label> <!-- Prod_Name -->
+    <input type="number" class="form-control" id="f_contact" required>
+  </div>             
+
+  <div class="col-sm-3 col-xs-12" id="f_bdate_div" class='form-group'> 
+    <label><font color="darkred">*</font>Birthdate</label> <!-- Prod_Name -->
+    <input type="date" class="form-control" id="f_bdate" required>
+  </div>             
+
+  <div class="col-sm-2 col-xs-12" id="f_gender_div" class='form-group'> 
+    <label><font color="darkred">*</font>Gender</label> <!-- Prod_Name -->
+    <select class="form-control" id="f_gender" required>
+      <option value="none">--SELECT--</option>
+      <option value="male">MALE</option>
+      <option value="female">FEMALE</option>
+    </select>
+  </div>                 
+
+  <div class="col-sm-2 col-xs-12" id="f_mstatus_div" class='form-group'> 
+    <label><font color="darkred">*</font>Status</label> <!-- Prod_Name -->
+    <select class="form-control" id="f_mstatus" onchange="showSpouse(this.value)" required>
+      <option value="single">SINGLE</option>
+      <option value="married">MARRIED</option>
+      <option value="divorced">DIVORCED</option>      
+      <option value="widowed">WIDOWED</option>      
+    </select>
+  </div>   
+
+</div> <!-- /.row -->   
+
+<div class="row" style="margin-bottom:5px"> <!-- ROW 1 -->
+  
+  <div class="col-sm-3 col-xs-12" id="address" class='form-group'> 
+    <label><font color="darkred">*</font>Address</label> <!-- Prod_Name -->
+    <textarea type="text" class="form-control" id="f_address" style="resize:none" required></textarea>
+  </div>           
+   
+  <div class="col-sm-3 col-xs-12" id="f_job_div" class='form-group'> 
+    <label><font color="darkred">*</font>Job</label> <!-- Prod_Name -->
+    <input type="text" class="form-control" id="f_job" required>
+  </div>      
+
+  <div id="spouse_div" style="display:none">
+
+    <div class="col-sm-4 col-xs-12" id="f_spouse_div" class='form-group'> 
+      <label><font color="darkred">*</font>Spouse Name</label> <!-- Prod_Name -->
+      <input type="text" class="form-control" id="f_spouse">
+    </div>     
+
+    <div class="col-sm-2 col-xs-12" id="f_dependents_div" class='form-group'> 
+      <label><font color="darkred">*</font>No of Dependents</label> <!-- Prod_Name -->
+      <input type="number" class="form-control" id="f_dependents">
+    </div>       
+  </div>
+
+</div> <!-- /.row -->   

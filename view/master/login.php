@@ -5,6 +5,7 @@
 
 <body>
 <div class="login-page">
+<h1 style="text-align: center; color:#214761;">LoanSys</h1>
   <div class="form">
 
     <form action="../../model/master/login_process.php" method="post" class="login-form">
