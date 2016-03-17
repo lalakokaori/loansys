@@ -16,8 +16,12 @@ $id = uniqid('CL');
   $sql = "INSERT INTO Clients values(?,?,?,?,?,?,?,?,?,?,?)";
   $q = $conn->prepare($sql);
   $q -> execute(array($id,$client_name,$client_address,$client_contact,$client_bdate,$client_gender,$client_job,$client_mstatus,$client_spouse,$client_dependents,'active'));
-  $browse = $q -> fetchAll();
      
+
+  $sql = "INSERT INTO Accounts values(?,?,?)";
+  $q = $conn->prepare($sql);
+  $q -> execute(array(uniqid('ACC'),$id,'active'));
+
 $conn = null;             
 
 echo json_encode($output);
