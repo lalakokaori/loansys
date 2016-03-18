@@ -58,7 +58,7 @@
                 <div class="row">
                     <div class="col-md-8 col-xs-12"><h2 style="color:grey"><i class="fa fa-calendar-o"></i> TERMS </h2></div>
                     <div class="col-md-2 col-xs-12"><br><button id="btn_reset" class="btn btn-block btn-lg">Reset</button></div>                    
-                    <div class="col-md-2 col-xs-12"><br><button id="btn_save" class="btn btn-block btn-success btn-lg">SAVE</button></div>
+                    <div class="col-md-2 col-xs-12"><br><button id="btn_save" value="create" class="btn btn-block btn-success btn-lg">SAVE</button></div>
                 </div>      
 
             <?php include('main_form.html'); ?>
@@ -70,7 +70,7 @@
           <div class="row">                     <!-- TABLES -->          
 
             <div class="col-lg-12 col-sm-12 col-xs-12">
-              <table id="table_main" class="table table-condensed table-striped table-hover">
+              <table id="table_main" class="table table-striped table-hover">
                 <thead>
                   <tr>
                     <th>Term Name</th>   

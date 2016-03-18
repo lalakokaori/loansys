@@ -1,4 +1,4 @@
-//	populate_table_main();
+	populate_table_main();
 
 
 
@@ -12,7 +12,7 @@ function populate_table_main(){
 	//ajax now
 	$.ajax ({
 	  type: "POST",
-	  url: "../../model/clients/populate_table_main.php",
+	  url: "../../model/terms/populate_table_main.php",
 	  dataType: 'json',      
 	  cache: false,
 	  success: function(s)
@@ -22,9 +22,9 @@ function populate_table_main(){
 	    { 
 	      table_main.fnAddData
 	      ([
-	        s[i][1],s[i][2],s[i][3],s[i][4],
-	        '<button data-toggle="tooltip" onclick="client_row_view(this.value)" value='+s[i][0]+' data-toggle="modal" class="btn btn-xs " title="VIEW /Edit"> <i class="fa fa-eye"></i></button>',      	        
-	        '<button data-toggle="tooltip" onclick="client_row_del(this.value)" value='+s[i][0]+' data-toggle="modal" class="btn btn-xs  btn-danger" title="Delete"> <i class="fa fa-trash"></i> </button>',      
+	        s[i][1], '<span class="badge">'+s[i][2]+'</span>',
+	        '<button data-toggle="tooltip" onclick="term_row_view(this.value)" value='+s[i][0]+' data-toggle="modal" class="btn btn-xs " title="VIEW /Edit"> <i class="fa fa-eye"></i></button>',      	        
+	        '<button data-toggle="tooltip" onclick="term_row_del(this.value)" value='+s[i][0]+' data-toggle="modal" class="btn btn-xs  btn-danger" title="Delete"> <i class="fa fa-trash"></i> </button>',      
 	      ],false); 
 	      table_main.fnDraw();
 
@@ -36,27 +36,14 @@ function populate_table_main(){
 
 function reset(){
 	$('#btn_save').val('create');
+
 	$('#f_name').val('');
-	$('#f_contact').val('');
-	$('#f_bdate').val('');
-	$('#f_gender').val('none');
-	$('#f_mstatus').val('single');
-	$('#f_address').val('');
-	$('#f_job').val('');
-	$('#f_spouse').val('');
-	$('#f_dependents').val('');
+	$('#f_days').val('');
+
 
 	$('#f_name_div').removeClass('has-error');     
-	$('#f_contact_div').removeClass('has-error');     
-	$('#f_bdate_div').removeClass('has-error');     
-	$('#f_gender_div').removeClass('has-error');
-	$('#f_mstatus_div').removeClass('has-error');  
-	$('#f_address_div').removeClass('has-error');     
-	$('#f_job_div').removeClass('has-error');     
-	$('#f_spouse_div').removeClass('has-error');     
-	$('#f_dependents_div').removeClass('has-error');     
+	$('#f_days_div').removeClass('has-error');     
 
-	$('#spouse_div').css('display','none');
 }
 
 function validate_form(){
@@ -69,78 +56,27 @@ function validate_form(){
 	else
 		$('#f_name_div').removeClass('has-error');		
 
-	if($('#f_contact').val()==''){
+	if($('#f_days').val()=='' || $('#f_days').val()<0 || $('#f_days').val()>9999){
 		err = true;
-		$('#f_contact_div').addClass('has-error');
+		$('#f_days_div').addClass('has-error');
 	}
 	else
-		$('#f_contact_div').removeClass('has-error');	
-
-	if($('#f_bdate').val()==''){
-		err = true;
-		$('#f_bdate_div').addClass('has-error');
-	}
-	else
-		$('#f_bdate_div').removeClass('has-error');	
-
-	if($('#f_gender').val()=='none'){
-		err = true;
-		$('#f_gender_div').addClass('has-error');
-	}
-	else
-		$('#f_gender_div').removeClass('has-error');	
-
-	if($('#f_address').val()==''){
-		err = true;
-		$('#f_address_div').addClass('has-error');
-	}
-	else
-		$('#f_address_div').removeClass('has-error');	
-
-	if($('#f_job').val()==''){
-		err = true;
-		$('#f_job_div').addClass('has-error');
-	}
-	else
-		$('#f_job_div').removeClass('has-error');	
-
-	if( $('#f_mstatus').val()=='married' ){
-		if($('#f_spouse').val()==''){
-			err = true;
-			$('#f_spouse_div').addClass('has-error');
-		}
-		else
-			$('#f_spouse_div').removeClass('has-error');	
-
-		if($('#f_dependents').val()=='' || $('#f_dependents').val()<0){
-			err = true;
-			$('#f_dependents_div').addClass('has-error');
-		}
-		else
-			$('#f_dependents_div').removeClass('has-error');	
-
-	}
+		$('#f_days_div').removeClass('has-error');	
 
 
 
 	return err;				
 }
 
-function showSpouse(get){
-	$('#f_spouse_div').removeClass('has-error');     
-	$('#f_dependents_div').removeClass('has-error');  	
-	if(get=='married'){$('#spouse_div').css('display','block');}
-	else{ $('#spouse_div').css('display','none'); }
-}
 
-function client_row_del(id){
+function term_row_del(id){
 
   var choice = confirm("Are you sure you want to Delete?");
   if(choice==true){
   			//ajax now
 			$.ajax ({
 			  type: "POST",
-			  url: "../../model/clients/delete.php",
+			  url: "../../model/terms/delete.php",
 			  data: 'id='+id,
 			  dataType: 'json',      
 			  cache: false,
@@ -153,24 +89,18 @@ function client_row_del(id){
   }		
 }
 
-function client_row_view(id){
+function term_row_view(id){
 	reset();
 		//ajax now
 	$.ajax ({
 	  type: "POST",
-	  url: "../../model/clients/fetch.php",
+	  url: "../../model/terms/fetch.php",
 	  data: 'id='+id,
 	  dataType: 'json',      
 	  cache: false,
 	  success: function(s){		
 	  	$('#btn_save').val(id);
-
-	  	$('#f_name').val(s[0][0]);	$('#f_contact').val(s[0][1]);	$('#f_bdate').val(s[0][2]);
-	  	$('#f_gender').val(s[0][3]);	$('#f_mstatus').val(s[0][4]);	$('#f_address').val(s[0][5]);	$('#f_job').val(s[0][6]);
-	  	if(s[0][4]=='married'){
-	  		$('#spouse_div').css('display','block');
-		  	$('#f_spouse').val(s[0][7]);	$('#f_dependents').val(s[0][8]);	  		
-	  	}
+	  	$('#f_name').val(s[0][0]);	$('#f_days').val(s[0][1]);
 	  }  
 	}); 
 	//ajax end
@@ -183,24 +113,15 @@ $('#btn_save').click(function(){
 	if(validate_form()==true){}
 	else{
 
-		var client_name = $('#f_name').val();
-		var client_contact = $('#f_contact').val();
-		var client_bdate = $('#f_bdate').val();
-		var client_gender = $('#f_gender').val();
-		var client_mstatus = $('#f_mstatus').val();
-		var client_address = $('#f_address').val();
-		var client_job = $('#f_job').val();
-		var client_spouse = $('#f_spouse').val();
-		var client_dependents = $('#f_dependents').val();
-		var dataString = 'client_name='+client_name+'&client_contact='+client_contact+'&client_bdate='+client_bdate;
-		dataString+='&client_gender='+client_gender+'&client_mstatus='+client_mstatus+'&client_address='+client_address;
-		dataString+='&client_job='+client_job+'&client_spouse='+client_spouse+'&client_dependents='+client_dependents;
+		var term_name = $('#f_name').val();
+		var term_days = $('#f_days').val();
 
+		var dataString = 'term_name='+term_name+'&term_days='+term_days;
 		if(this.value=='create'){ //CREATE MODE
 			//ajax now
 			$.ajax ({
 			  type: "POST",
-			  url: "../../model/clients/create.php",
+			  url: "../../model/terms/create.php",
 			  data: dataString,
 			  dataType: 'json',      
 			  cache: false,
@@ -217,7 +138,7 @@ $('#btn_save').click(function(){
 			//ajax now
 			$.ajax ({
 			  type: "POST",
-			  url: "../../model/clients/update.php",
+			  url: "../../model/terms/update.php",
 			  data: dataString+'&id='+id,
 			  dataType: 'json',      
 			  cache: false,

@@ -16,6 +16,7 @@
   else{
   $loansys_user_name = $_SESSION["loansys_user_name"];
   $loansys_user_type = $_SESSION["loansys_user_type"];
+  echo'<input id="loansys_user_type" value="'.$loansys_user_type.'">';
   }
 ?>
 
@@ -25,12 +26,23 @@
       <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Loaning System</title>
-	<!-- BOOTSTRAP STYLES-->
-    <link href="assets/css/bootstrap.css" rel="stylesheet" />
-     <!-- FONTAWESOME STYLES-->
-    <link href="assets/css/font-awesome.css" rel="stylesheet" />
-        <!-- CUSTOM STYLES-->
+
     <link href="assets/css/custom.css" rel="stylesheet" />
+
+    <script src="controller/master/logout.js" type="text/javascript"></script>
+
+  <!--GEMS-->
+    <link href="gems/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />  
+    <!--Bootstrap CSS BELOW-->
+    <link href="gems/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />  
+    <!--JQUERY BELOW-->
+    <script src="gems/jQuery/jQuery-2.1.4.min.js"></script>
+    <!--Datatables BELOW-->
+    <script src="gems/datatables/jquery.dataTables.js" type="text/javascript"></script>
+    <!--Datatables Bootsrap CSS BELOW -->
+    <script src="gems/datatables/dataTables.bootstrap.js" type="text/javascript"></script>   
+    <!--Datatables Javascript BELLOW -->
+    <link href="gems/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />  
 
     <script src="controller/master/logout.js" type="text/javascript"></script>
 </head>
@@ -118,7 +130,7 @@
                   <!-- /. ROW  --> 
                 <div class="row text-center pad-top">
 
-                  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6" title="Maintain User Accounts">
+                  <div id="menu_users" class="col-lg-2 col-md-2 col-sm-2 col-xs-6" title="Maintain User Accounts">
                       <div class="div-square">
                          <a href="view/user/main.php" ><i class="fa fa-users fa-5x"></i>
                            <h4>Users</h4>
@@ -126,7 +138,7 @@
                       </div>                                          
                   </div> <!--col-->
               
-                  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6" title="Maintain Clients">
+                  <div id="menu_clients" class="col-lg-2 col-md-2 col-sm-2 col-xs-6" title="Maintain Clients">
                       <div class="div-square">
                          <a href="view/client/main.php" ><i class="fa fa-user fa-5x"></i>
                            <h4>Clients</h4>
@@ -134,7 +146,7 @@
                       </div>                                          
                   </div> <!--col-->                                                                           
 
-                  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6" title="Maintain Payment Terms">
+                  <div id="menu_terms" class="col-lg-2 col-md-2 col-sm-2 col-xs-6" title="Maintain Payment Terms">
                       <div class="div-square">
                          <a href="view/term/main.php" ><i class="fa fa-calendar-o fa-5x"></i>
                            <h4>Terms</h4>
@@ -142,7 +154,7 @@
                       </div>                                          
                   </div> <!--col-->     
 
-                  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6" title="Maintain Durations">
+                  <div id="menu_durations" class="col-lg-2 col-md-2 col-sm-2 col-xs-6" title="Maintain Durations">
                       <div class="div-square">
                          <a href="view/duration/main.php" ><i class="fa fa-calendar fa-5x"></i>
                            <h4>Durations</h4>
@@ -169,14 +181,16 @@
           
 
      <!-- /. WRAPPER  -->
-    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
-    <!-- JQUERY SCRIPTS -->
-    <script src="assets/js/jquery-1.10.2.js"></script>
-      <!-- BOOTSTRAP SCRIPTS -->
-    <script src="assets/js/bootstrap.min.js"></script>
-      <!-- CUSTOM SCRIPTS -->
-    <script src="assets/js/custom.js"></script>
-    
+
+    <script type="text/javascript">
+
+      if($('#loansys_user_type').val()!='ADMIN'){
+        $('#menu_users').css('display','none');
+        $('#menu_clients').css('display','none');
+        $('#menu_terms').css('display','none');
+        $('#menu_durations').css('display','none');        
+      }
+    </script>
    
 </body>
 </html>

@@ -58,7 +58,7 @@
                 <div class="row">
                     <div class="col-md-8 col-xs-12"><h2 style="color:grey"><i class="fa fa-user"></i> CLIENTS </h2></div>
                     <div class="col-md-2 col-xs-12"><br><button id="btn_reset" class="btn btn-block btn-lg">Reset</button></div>                    
-                    <div class="col-md-2 col-xs-12"><br><button id="btn_save" class="btn btn-block btn-success btn-lg">SAVE</button></div>
+                    <div class="col-md-2 col-xs-12"><br><button id="btn_save" value="create" class="btn btn-block btn-success btn-lg">SAVE</button></div>
                 </div>      
 
             <?php include('main_form.html'); ?>
