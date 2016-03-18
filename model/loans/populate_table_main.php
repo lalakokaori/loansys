@@ -21,7 +21,8 @@
   {
     $output[] = array ($fetch['loans_id'],$fetch['loans_transdate'],
       $fetch['clients_name'],$fetch['loantypes_name'],$fetch['loans_interest'].' %', 
-      $fetch['durations_name'],$fetch['terms_name'],$fetch['loans_amount'],$fetch['loans_status']);				 	
+      $fetch['durations_name'],$fetch['terms_name'],$fetch['loans_amount'],
+      strtoupper($fetch['loans_status']) );				 	
   }         
 $conn = null;             
 

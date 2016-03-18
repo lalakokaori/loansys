@@ -4,7 +4,7 @@
 $duration_name = trim($_POST['duration_name']);
 $duration_days = trim($_POST['duration_days']);
 
-$id = uniqid('TR');
+$id = uniqid('DR');
 
   $sql = "INSERT INTO Durations values(?,?,?,?)";
   $q = $conn->prepare($sql);

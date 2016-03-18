@@ -110,33 +110,56 @@ function load_f_loantype(){
 function reset(){
 	$('#btn_save').val('create');
 
-	$('#f_name').val('');
-	$('#f_days').val('');
+	$('#f_client').select2().select2('val','none');                      
+	$('#f_duration').select2().select2('val','none');    
+	$('#f_term').select2().select2('val','none');
+	$('#f_loantype').select2().select2('val','none');
+	$('#f_amount').val('');
 
-
-	$('#f_name_div').removeClass('has-error');     
-	$('#f_days_div').removeClass('has-error');     
-
+	$('#f_client_div').removeClass('has-error');     
+	$('#f_duration_div').removeClass('has-error');
+	$('#f_term_div').removeClass('has-error');   
+	$('#f_loantype_div').removeClass('has-error'); 
+	$('#f_amount_div').removeClass('has-error');     
 }
 
 function validate_form(){
 	err = false;
 
-	if($('#f_name').val()==''){
+	if($('#f_client').val()=='none'){
 		err = true;
-		$('#f_name_div').addClass('has-error');
+		$('#f_client_div').addClass('has-error');
 	}
 	else
-		$('#f_name_div').removeClass('has-error');		
+		$('#f_client_div').removeClass('has-error');		
 
-	if($('#f_days').val()=='' || $('#f_days').val()<0 || $('#f_days').val()>9999){
+	if($('#f_duration').val()=='none'){
 		err = true;
-		$('#f_days_div').addClass('has-error');
+		$('#f_duration_div').addClass('has-error');
 	}
 	else
-		$('#f_days_div').removeClass('has-error');	
+		$('#f_duration_div').removeClass('has-error');	
 
+	if($('#f_term').val()=='none'){
+		err = true;
+		$('#f_term_div').addClass('has-error');
+	}
+	else
+		$('#f_term_div').removeClass('has-error');	
 
+	if($('#f_loantype').val()=='none'){
+		err = true;
+		$('#f_loantype_div').addClass('has-error');
+	}
+	else
+		$('#f_loantype_div').removeClass('has-error');	
+
+	if($('#f_amount').val()=='' || $('#f_amount').val()<5000 || $('#f_amount').val()>500000){
+		err = true;
+		$('#f_amount_div').addClass('has-error');
+	}
+	else
+		$('#f_amount_div').removeClass('has-error');	
 
 	return err;				
 }
@@ -186,15 +209,20 @@ $('#btn_save').click(function(){
 	if(validate_form()==true){}
 	else{
 
-		var duration_name = $('#f_name').val();
-		var duration_days = $('#f_days').val();
+		var loan_client_id = $('#f_client').val();
+		var loan_duration_id = $('#f_duration').val();
+		var loan_term_id = $('#f_term').val();
+		var loan_loantype_id = $('#f_loantype').val();
+		var loan_amount = $('#f_amount').val();
 
-		var dataString = 'duration_name='+duration_name+'&duration_days='+duration_days;
+		var dataString = 'loan_client_id='+loan_client_id+'&loan_duration_id='+loan_duration_id;
+			dataString+='&loan_term_id='+loan_term_id+'&loan_loantype_id='+loan_loantype_id+'&loan_amount='+loan_amount;
+
 		if(this.value=='create'){ //CREATE MODE
 			//ajax now
 			$.ajax ({
 			  type: "POST",
-			  url: "../../model/durations/create.php",
+			  url: "../../model/loans/create.php",
 			  data: dataString,
 			  dataType: 'json',      
 			  cache: false,
@@ -211,7 +239,7 @@ $('#btn_save').click(function(){
 			//ajax now
 			$.ajax ({
 			  type: "POST",
-			  url: "../../model/durations/update.php",
+			  url: "../../model/loans/update.php",
 			  data: dataString+'&id='+id,
 			  dataType: 'json',      
 			  cache: false,
