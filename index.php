@@ -79,6 +79,14 @@
                     </li>   
 
                     <li>
+                        <a href="view/term/main.php"><i class="fa fa-calendar-o "></i>Terms <span class="badge">of Payments</span></a></a>
+                    </li>
+
+                    <li>
+                        <a href="view/duration/main.php"><i class="fa fa-calendar "></i>Durations</a></a>
+                    </li>
+
+                    <li>
                         <a href="ui.html"><i class="fa fa-table "></i>UI Elements  <span class="badge">Included</span></a>
                     </li>
 
@@ -118,13 +126,29 @@
                       </div>                                          
                   </div> <!--col-->
               
-                  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6" title="Maintain User Accounts">
+                  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6" title="Maintain Clients">
                       <div class="div-square">
                          <a href="view/client/main.php" ><i class="fa fa-user fa-5x"></i>
                            <h4>Clients</h4>
                          </a>
                       </div>                                          
-                  </div> <!--col-->                                                                                               
+                  </div> <!--col-->                                                                           
+
+                  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6" title="Maintain Payment Terms">
+                      <div class="div-square">
+                         <a href="view/term/main.php" ><i class="fa fa-calendar-o fa-5x"></i>
+                           <h4>Terms</h4>
+                         </a>
+                      </div>                                          
+                  </div> <!--col-->     
+
+                  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6" title="Maintain Durations">
+                      <div class="div-square">
+                         <a href="view/duration/main.php" ><i class="fa fa-calendar fa-5x"></i>
+                           <h4>Durations</h4>
+                         </a>
+                      </div>                                          
+                  </div> <!--col-->                                                             
                      
               </div><!-- ROW-->
 
