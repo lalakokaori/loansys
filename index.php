@@ -91,7 +91,7 @@
                     </li>   
 
                     <li>
-                        <a href="view/term/main.php"><i class="fa fa-calendar-o "></i>Terms <span class="badge">of Payments</span></a></a>
+                        <a href="view/term/main.php"><i class="fa fa-calendar-o "></i>Terms</a></a>
                     </li>
 
                     <li>
