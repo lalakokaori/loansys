@@ -15,6 +15,7 @@ $("#f_loantype").select2();
 
 
 function populate_table_main(){ 
+  load_f_client();	load_f_duration();	load_f_term();	load_f_loantype();	
 	//ajax now
 	$.ajax ({
 	  type: "POST",
@@ -32,7 +33,6 @@ function populate_table_main(){
 	        '<button data-toggle="tooltip" onclick="table_row_view(this.value)" value='+s[i][0]+' data-toggle="modal" class="btn btn-xs " title="VIEW /Edit"> <i class="fa fa-eye"></i></button>',      	        
 	      ],false); 
 	      table_main.fnDraw();
-	      load_f_client();	load_f_duration();	load_f_term();	load_f_loantype();
 	    }       
 	  }  
 	}); 
@@ -227,30 +227,20 @@ $('#btn_save').click(function(){
 			  dataType: 'json',      
 			  cache: false,
 			  success: function(s){		  	
-			  	alert('Saved');
-			  	reset();
-			  	populate_table_main();
+			  	if(s==0){
+				  	alert('Success: Saved');
+				  	reset();
+				  	populate_table_main();			  		
+			  	}
+			  	else if(s==1){
+				  	alert('Failed: Client Still has an OPEN or PENDING Loan of Selected LoanType');
+			  	}
+	
 			  }  
 			}); 
 			//ajax end  
 		}
-		else{ //UPDATE MODE
-			var id = this.value;
-			//ajax now
-			$.ajax ({
-			  type: "POST",
-			  url: "../../model/loans/update.php",
-			  data: dataString+'&id='+id,
-			  dataType: 'json',      
-			  cache: false,
-			  success: function(s){		  	
-			  	alert('Updated');
-			  	reset();
-			  	populate_table_main();
-			  }  
-			}); 
-			//ajax end  			
-		}
+
 	}
 
 })
