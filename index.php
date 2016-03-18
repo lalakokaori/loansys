@@ -16,7 +16,7 @@
   else{
   $loansys_user_name = $_SESSION["loansys_user_name"];
   $loansys_user_type = $_SESSION["loansys_user_type"];
-  echo'<input id="loansys_user_type" value="'.$loansys_user_type.'">';
+  echo'<input type="hidden" id="loansys_user_type" value="'.$loansys_user_type.'">';
   }
 ?>
 
@@ -87,6 +87,8 @@
                         <span class="badge">TRANSACTION</span></a></a>
                     </li>
 
+                    <?php if($_SESSION['loansys_user_type']=='ADMIN') { ?>
+
                     <li>
                         <a href="view/user/main.php"><i class="fa fa-users "></i>Users</a>
                     </li>                   
@@ -107,7 +109,7 @@
                         <a href="view/loantype/main.php"><i class="fa fa-sitemap "></i>Loan Types</a></a>
                     </li>
 
-
+                    <?php } ?>
 
                     
                 </ul>

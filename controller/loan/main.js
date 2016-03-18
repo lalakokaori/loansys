@@ -25,12 +25,14 @@ function populate_table_main(){
 	  success: function(s)
 	  {
 	    table_main.fnClearTable();      
+	    var enability='enabled';	 
+	    if($('#loansys_user_type').val()!='ADMIN'){enability='disabled';}   
 	    for(var i = 0; i < s.length; i++) 
-	    { 
+	    { 	    	
 	      table_main.fnAddData
 	      ([
 	        s[i][1],s[i][2],s[i][3],'<span class="badge">'+s[i][4]+'</span>',s[i][5],s[i][6],'<span class="badge">'+comma(s[i][7])+'</span>',s[i][8],
-	        '<button data-toggle="tooltip" onclick="table_row_view(this.value)" value='+s[i][0]+' data-toggle="modal" class="btn btn-xs " title="VIEW /Edit"> <i class="fa fa-eye"></i></button>',      	        
+	        '<button onclick="table_row_view(this.value)" value='+s[i][0]+' target="_blank" class="btn btn-xs " title="VIEW /Edit" '+enability+'> <i class="fa fa-eye"></i></button>',      	        
 	      ],false); 
 	      table_main.fnDraw();
 	    }       
@@ -162,27 +164,6 @@ function validate_form(){
 		$('#f_amount_div').removeClass('has-error');	
 
 	return err;				
-}
-
-
-function table_row_del(id){
-
-  var choice = confirm("Are you sure you want to Delete?");
-  if(choice==true){
-  			//ajax now
-			$.ajax ({
-			  type: "POST",
-			  url: "../../model/durations/delete.php",
-			  data: 'id='+id,
-			  dataType: 'json',      
-			  cache: false,
-			  success: function(s){		  	
-			  	alert('Success: Deleted ');
-			  	reset();
-			  	populate_table_main();
-			  }  
-			}); 
-  }		
 }
 
 function table_row_view(id){

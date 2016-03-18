@@ -13,6 +13,7 @@
             TRANSACTION</span></a>
         </li>       
 
+    <?php if($_SESSION['loansys_user_type']=='ADMIN') { ?>
         <li>
             <a href="../user/main.php"><i class="fa fa-users "></i>Users</a>
         </li>
@@ -32,6 +33,8 @@
         <li>
             <a href="../loantype/main.php"><i class="fa fa-sitemap "></i>Loan Types</a></a>
         </li>
+    <?php } ?>
+
         </li>
     </ul>
                 </div>

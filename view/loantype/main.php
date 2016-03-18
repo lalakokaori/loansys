@@ -49,7 +49,7 @@
                 </span>
             </div>
         </div>
-        <?php include('../master/sidebar.html');?>
+        <?php include('../master/sidebar.php');?>
 
         <div id="page-wrapper" >
 

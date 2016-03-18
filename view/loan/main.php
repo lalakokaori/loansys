@@ -52,7 +52,7 @@
                 </span>
             </div>
         </div>
-        <?php include('../master/sidebar.html');?>
+        <?php include('../master/sidebar.php');?>
 
         <div id="page-wrapper" >
 
@@ -73,13 +73,13 @@
           <div class="row">                     <!-- TABLES -->          
 
             <div class="col-lg-12 col-sm-12 col-xs-12">
-              <table id="table_main" class="table table-striped table-hover">
+              <table id="table_main" class="table table-condensed table-striped table-hover">
                 <thead>
                   <tr>
-                    <th style="width:80px">Date</th>
+                    <th style="width:100px">Date</th>
                     <th>Client Name</th>   
                     <th>LoanType</th>
-                    <th>Interest</th>
+                    <th style="width:60px">Interest</th>
                     <th>Duration</th>  
                     <th>Terms</th>     
                     <th>Amount</th>     
