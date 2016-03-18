@@ -83,6 +83,11 @@
                     </li>
               
                     <li>
+                        <a href="view/loan/main.php"><i class="fa fa-hand-paper-o "></i>Loans
+                        <span class="badge">TRANSACTION</span></a></a>
+                    </li>
+
+                    <li>
                         <a href="view/user/main.php"><i class="fa fa-users "></i>Users</a>
                     </li>                   
 
@@ -102,9 +107,7 @@
                         <a href="view/loantype/main.php"><i class="fa fa-sitemap "></i>Loan Types</a></a>
                     </li>
 
-                    <li>
-                        <a href="ui.html"><i class="fa fa-table "></i>UI Elements  <span class="badge">Included</span></a>
-                    </li>
+
 
                     
                 </ul>
@@ -133,6 +136,14 @@
 
                   <!-- /. ROW  --> 
                 <div class="row text-center pad-top">
+
+                  <div id="menu_loans" class="col-lg-2 col-md-2 col-sm-2 col-xs-6" title="Loan Transactions">
+                      <div class="div-square">
+                         <a href="view/loan/main.php" ><i class="fa fa-hand-paper-o fa-5x"></i>
+                           <h4>Loans</h4>
+                         </a>
+                      </div>                                          
+                  </div> <!--col-->  
 
                   <div id="menu_users" class="col-lg-2 col-md-2 col-sm-2 col-xs-6" title="Maintain User Accounts">
                       <div class="div-square">
