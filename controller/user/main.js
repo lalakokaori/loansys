@@ -73,20 +73,23 @@ function validate_form(){
 }
 
 function user_row_del(id){
-	//ajax now
-	$.ajax ({
-	  type: "POST",
-	  url: "../../model/users/delete.php",
-	  data: 'id='+id,
-	  dataType: 'json',      
-	  cache: false,
-	  success: function(s){		  	
-	  	alert('Success: Deleted ');
-	  	reset();
-	  	populate_table_main();
-	  }  
-	}); 
-	//ajax end  
+  var choice = confirm("Are you sure you want to Delete?");
+  if(choice==true){	
+		//ajax now
+		$.ajax ({
+		  type: "POST",
+		  url: "../../model/users/delete.php",
+		  data: 'id='+id,
+		  dataType: 'json',      
+		  cache: false,
+		  success: function(s){		  	
+		  	alert('Success: Deleted ');
+		  	reset();
+		  	populate_table_main();
+		  }  
+		}); 
+		//ajax end  
+	}
 }
 
 $('#btn_reset').click(function(){ reset(); })

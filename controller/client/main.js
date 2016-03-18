@@ -150,10 +150,30 @@ function client_row_del(id){
 			  	populate_table_main();
 			  }  
 			}); 
-  }
+  }		
+}
 
+function client_row_view(id){
+	reset();
+		//ajax now
+	$.ajax ({
+	  type: "POST",
+	  url: "../../model/clients/fetch.php",
+	  data: 'id='+id,
+	  dataType: 'json',      
+	  cache: false,
+	  success: function(s){		
+	  	$('#btn_save').val(id);
 
-		
+	  	$('#f_name').val(s[0][0]);	$('#f_contact').val(s[0][1]);	$('#f_bdate').val(s[0][2]);
+	  	$('#f_gender').val(s[0][3]);	$('#f_mstatus').val(s[0][4]);	$('#f_address').val(s[0][5]);	$('#f_job').val(s[0][6]);
+	  	if(s[0][4]=='married'){
+	  		$('#spouse_div').css('display','block');
+		  	$('#f_spouse').val(s[0][7]);	$('#f_dependents').val(s[0][8]);	  		
+	  	}
+	  }  
+	}); 
+	//ajax end
 }
 
 $('#btn_reset').click(function(){ reset(); })
@@ -176,7 +196,7 @@ $('#btn_save').click(function(){
 		dataString+='&client_gender='+client_gender+'&client_mstatus='+client_mstatus+'&client_address='+client_address;
 		dataString+='&client_job='+client_job+'&client_spouse='+client_spouse+'&client_dependents='+client_dependents;
 
-		if(this.value!='update'){ //CREATE MODE
+		if(this.value=='create'){ //CREATE MODE
 			//ajax now
 			$.ajax ({
 			  type: "POST",
@@ -192,12 +212,13 @@ $('#btn_save').click(function(){
 			}); 
 			//ajax end  
 		}
-		else if(this.value=='update'){ //UPDATE MODE
+		else{ //UPDATE MODE
+			var id = this.value;
 			//ajax now
 			$.ajax ({
 			  type: "POST",
-			  url: "../../model/users/update.php",
-			  data: dataString,
+			  url: "../../model/clients/update.php",
+			  data: dataString+'&id='+id,
 			  dataType: 'json',      
 			  cache: false,
 			  success: function(s){		  	
