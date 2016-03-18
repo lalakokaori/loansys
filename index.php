@@ -99,6 +99,10 @@
                     </li>
 
                     <li>
+                        <a href="view/loantype/main.php"><i class="fa fa-sitemap "></i>Loan Types</a></a>
+                    </li>
+
+                    <li>
                         <a href="ui.html"><i class="fa fa-table "></i>UI Elements  <span class="badge">Included</span></a>
                     </li>
 
@@ -160,8 +164,15 @@
                            <h4>Durations</h4>
                          </a>
                       </div>                                          
-                  </div> <!--col-->                                                             
-                     
+                  </div> <!--col-->                                                                           
+                  <div id="menu_loantypes" class="col-lg-2 col-md-2 col-sm-2 col-xs-6" title="Maintain Loan Types">
+                      <div class="div-square">
+                         <a href="view/duration/main.php" ><i class="fa fa-sitemap fa-5x"></i>
+                           <h4>Loan Types</h4>
+                         </a>
+                      </div>                                          
+                  </div> <!--col-->  
+
               </div><!-- ROW-->
 
 
@@ -188,7 +199,8 @@
         $('#menu_users').css('display','none');
         $('#menu_clients').css('display','none');
         $('#menu_terms').css('display','none');
-        $('#menu_durations').css('display','none');        
+        $('#menu_durations').css('display','none');
+        $('#menu_loantypes').css('display','none');                        
       }
     </script>
    
