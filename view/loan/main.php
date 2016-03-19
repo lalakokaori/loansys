@@ -77,6 +77,7 @@
                 <thead>
                   <tr>
                     <th style="width:100px">Date</th>
+                    <th style="width:100px">Processed</th>                    
                     <th>Client Name</th>   
                     <th>LoanType</th>
                     <th style="width:60px">Interest</th>
@@ -84,7 +85,8 @@
                     <th>Terms</th>     
                     <th>Amount</th>     
                     <th>Status</th>                                                
-                    <th style="width: 10px"></th>                       
+                    <th style="width: 10px"></th>  
+                    <th style="width: 10px"></th>                                           
                   </tr>
                   <tbody></tbody>
                 </thead>

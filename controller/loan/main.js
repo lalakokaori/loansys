@@ -4,7 +4,7 @@
 
 
   var table_main = $('#table_main').dataTable({
-    "aoColumnDefs": [ { "bSortable": false, "aTargets": [8] } ],
+    "aoColumnDefs": [ { "bSortable": false, "aTargets": [9,10] } ],
     "aaSorting": []
   });  //Initialize the datatable
 
@@ -25,14 +25,17 @@ function populate_table_main(){
 	  success: function(s)
 	  {
 	    table_main.fnClearTable();      
-	    var enability='enabled';	 
-	    if($('#loansys_user_type').val()!='ADMIN'){enability='disabled';}   
 	    for(var i = 0; i < s.length; i++) 
 	    { 	    	
+	    	
+	    	if(s[i][9]!='PENDING'){ var enability='disabled';}
+	    	else{var enability = 'enabled';}
+
 	      table_main.fnAddData
 	      ([
-	        s[i][1],s[i][2],s[i][3],'<span class="badge">'+s[i][4]+'</span>',s[i][5],s[i][6],'<span class="badge">'+comma(s[i][7])+'</span>',s[i][8],
-	        '<button onclick="table_row_view(this.value)" value='+s[i][0]+' target="_blank" class="btn btn-xs " title="VIEW /Edit" '+enability+'> <i class="fa fa-eye"></i></button>',      	        
+	        s[i][1],s[i][2],s[i][3],s[i][4],'<span class="badge">'+s[i][5]+'</span>',s[i][6],s[i][7],'<span class="badge">'+comma(s[i][8])+'</span>',s[i][9],
+	        '<button onclick="table_row_approve(this.value)" value='+s[i][0]+' target="_blank" class="btn btn-xs btn-success" title="Approve" '+enability+'> <i class="fa fa-check"></i></button>',      	        
+	        '<button onclick="table_row_decline(this.value)" value='+s[i][0]+' target="_blank" class="btn btn-xs btn-danger" title="Decline" '+enability+'> <i class="fa fa-close"></i></button>'	      
 	      ],false); 
 	      table_main.fnDraw();
 	    }       
@@ -166,21 +169,46 @@ function validate_form(){
 	return err;				
 }
 
-function table_row_view(id){
-	reset();
-		//ajax now
+function table_row_decline(id){
+
+  var choice = confirm("Are you sure you want to Decline this Record?");
+  if(choice==true){
+	//ajax now
 	$.ajax ({
 	  type: "POST",
-	  url: "../../model/durations/fetch.php",
+	  url: "../../model/loans/decline.php",
 	  data: 'id='+id,
 	  dataType: 'json',      
 	  cache: false,
 	  success: function(s){		
-	  	$('#btn_save').val(id);
-	  	$('#f_name').val(s[0][0]);	$('#f_days').val(s[0][1]);
+	  	reset();
+	  	populate_table_main();
+	  	alert('Success: Declined Loan Pending Record');
 	  }  
 	}); 
-	//ajax end
+	//ajax end  	
+  }
+}
+
+function table_row_approve(id){
+
+  var choice = confirm("Are you sure you want to APPROVE this Record?");
+  if(choice==true){
+	//ajax now
+	$.ajax ({
+	  type: "POST",
+	  url: "../../model/loans/approve.php",
+	  data: 'id='+id,
+	  dataType: 'json',      
+	  cache: false,
+	  success: function(s){		
+	  	reset();
+	  	populate_table_main();
+	  	alert('Success: Loan Approved now is OPEN');
+	  }  
+	}); 
+	//ajax end  	
+  }
 }
 
 $('#btn_reset').click(function(){ reset(); })
