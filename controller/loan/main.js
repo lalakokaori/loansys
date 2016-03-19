@@ -30,6 +30,7 @@ function populate_table_main(){
 	    	
 	    	if(s[i][9]!='PENDING'){ var enability='disabled';}
 	    	else{var enability = 'enabled';}
+	    	if($('#loansys_user_type').val()!='ADMIN'){var enability='disabled';}
 
 	      table_main.fnAddData
 	      ([
