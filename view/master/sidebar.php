@@ -8,10 +8,24 @@
             <a href="../../index.php" ><i class="fa fa-home "></i>Dashboard</a>
         </li>
 
+
+
+				<?php if($_SESSION['loansys_user_type']=='ADMIN' ||$_SESSION['loansys_user_type']=='FRONT DESK') { ?>
         <li>
             <a href="../loan/main.php"><i class="fa fa-hand-paper-o "></i>Loans <span class="badge">
             TRANSACTION</span></a>
         </li>       
+				<?php } ?>
+
+
+				<?php if($_SESSION['loansys_user_type']=='ADMIN' ||$_SESSION['loansys_user_type']=='TREASURER') { ?>
+				<li>
+						<a href="../payment/main.php"><i class="fa fa-money "></i>Payments</a>
+				</li>
+				<?php } ?>
+
+
+
 
     <?php if($_SESSION['loansys_user_type']=='ADMIN') { ?>
         <li>

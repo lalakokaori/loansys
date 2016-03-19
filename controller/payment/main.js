@@ -22,9 +22,7 @@ function populate_table_main(){
 	    for(var i = 0; i < s.length; i++) 
 	    { 	    	
 	    	
-	    	if(s[i][9]!='PENDING'){ var enability='disabled';}
-	    	else{var enability = 'enabled';}
-	    	if($('#loansys_user_type').val()!='ADMIN'){var enability='disabled';}
+	    	if(s[i][9]=='CLOSE'){ var enability='disabled';}
 
 	      table_main.fnAddData
 	      ([

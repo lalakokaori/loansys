@@ -151,6 +151,10 @@
                   <!-- /. ROW  --> 
                 <div class="row text-center pad-top">
 
+
+
+
+				<?php if($_SESSION['loansys_user_type']=='ADMIN' ||$_SESSION['loansys_user_type']=='FRONT DESK') { ?>
                   <div id="menu_loans" class="col-lg-2 col-md-2 col-sm-2 col-xs-6" title="loan transactions">
                       <div class="div-square">
                          <a href="view/loan/main.php" ><i class="fa fa-hand-paper-o fa-5x"></i>
@@ -158,7 +162,10 @@
                          </a>
                       </div>                                          
                   </div> <!--col-->  
+				<?php } ?>
 
+
+				<?php if($_SESSION['loansys_user_type']=='ADMIN' ||$_SESSION['loansys_user_type']=='TREASURER') { ?>
                   <div id="menu_payments" class="col-lg-2 col-md-2 col-sm-2 col-xs-6" title="loan payments">
                       <div class="div-square">
                          <a href="view/payment/main.php" ><i class="fa fa-money fa-5x"></i>
@@ -166,7 +173,7 @@
                          </a>
                       </div>                                          
                   </div> <!--col-->  
-
+				<?php } ?>
 
 
 
