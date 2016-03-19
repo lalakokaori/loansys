@@ -86,7 +86,6 @@
                     <th>Amount</th>     
                     <th>Status</th>                                                
                     <th style="width: 10px"></th>  
-                    <th style="width: 10px"></th>                                           
                   </tr>
                   <tbody></tbody>
                 </thead>
