@@ -26,7 +26,7 @@
       $status = $fetch['loans_status'];
 
       if(($fetch['loans_settledate']!=DATE(Y-m-d)) && $fetch['KURRENT']%$fetch['loans_term']==0 ){
-        $status= 'DUE (#'.$fetch['KURRENT']/$fetch['loans_term'].')' ;
+        $status= 'DUE [#'.$fetch['KURRENT']/$fetch['loans_term'].']' ;
       }
 
     }

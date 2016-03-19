@@ -48,7 +48,6 @@
 </head>
 <body>
      
-           
           
     <div id="wrapper">
          <div class="navbar navbar-inverse navbar-fixed-top">
@@ -152,13 +151,24 @@
                   <!-- /. ROW  --> 
                 <div class="row text-center pad-top">
 
-                  <div id="menu_loans" class="col-lg-2 col-md-2 col-sm-2 col-xs-6" title="Loan Transactions">
+                  <div id="menu_loans" class="col-lg-2 col-md-2 col-sm-2 col-xs-6" title="loan transactions">
                       <div class="div-square">
                          <a href="view/loan/main.php" ><i class="fa fa-hand-paper-o fa-5x"></i>
                            <h4>Loans</h4>
                          </a>
                       </div>                                          
                   </div> <!--col-->  
+
+                  <div id="menu_payments" class="col-lg-2 col-md-2 col-sm-2 col-xs-6" title="loan payments">
+                      <div class="div-square">
+                         <a href="view/payment/main.php" ><i class="fa fa-money fa-5x"></i>
+                           <h4>Payments</h4>
+                         </a>
+                      </div>                                          
+                  </div> <!--col-->  
+
+
+
 
                   <div id="menu_users" class="col-lg-2 col-md-2 col-sm-2 col-xs-6" title="Maintain User Accounts">
                       <div class="div-square">
