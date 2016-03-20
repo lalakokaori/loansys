@@ -3,7 +3,7 @@
 
 
   $sql = "SELECT clients_id, clients_name, clients_contact, clients_gender, 
-  TIMESTAMPDIFF(YEAR, clients_bdate , CURDATE()) as age
+  TIMESTAMPDIFF(YEAR, clients_bdate , CURDATE()) as age, clients_address
   FROM Clients WHERE clients_status = 'active' ORDER BY clients_name asc";
   $q = $conn->prepare($sql);
   $q -> execute();
@@ -12,7 +12,7 @@
   {
     $output[] = array ($fetch['clients_id'],
     	$fetch['clients_name'],$fetch['clients_contact'],
-    	$fetch['age'],$fetch['clients_gender']);				 	
+    	$fetch['age'],$fetch['clients_gender'],$fetch['clients_address']);				 	
   }         
 $conn = null;             
 

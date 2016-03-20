@@ -76,7 +76,8 @@
                     <th>Name</th>   
                     <th>Contact</th>                    
                     <th>Age</th>
-                    <th>Gender</th>                    
+                    <th>Gender</th> 
+                    <th>Address</th>                   
                     <th style="width: 10px"></th>                       
                     <th style="width: 10px"></th>
                   </tr>
