@@ -62,6 +62,8 @@ function reset(){
 function validate_form(){
 	err = false;
 
+
+
 	if($('#f_name').val()==''){
 		err = true;
 		$('#f_name_div').addClass('has-error');
@@ -79,6 +81,16 @@ function validate_form(){
 	if($('#f_bdate').val()==''){
 		err = true;
 		$('#f_bdate_div').addClass('has-error');
+	}
+	else if($('#f_bdate').val()!=''){
+		var today = new Date();
+		var today = today.getFullYear();
+		var f_bdate = $('#f_bdate').val().slice(0,4);
+		if( (today-f_bdate) < 18){
+			err = true;
+			$('#f_bdate_div').addClass('has-error');
+			alert('Must be 18 or Above');
+		}
 	}
 	else
 		$('#f_bdate_div').removeClass('has-error');	
