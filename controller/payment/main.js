@@ -78,6 +78,7 @@ function reset(){
 	$('#f_bb').val('');
 	$('#f_balance').val('');
 	$('#f_perterm').val('');
+	$('#f_payment').val('');
 }
 
 function validate_form(){
