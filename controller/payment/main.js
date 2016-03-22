@@ -87,6 +87,7 @@ function validate_form(){
 	if($('#btn_save').val() == ''){
 		err = true;
 		$('#btn_save').addClass('btn-danger');
+		alert('Select a Record in the Loans Table Below');
 	}
 	else{
 		$('#btn_save').removeClass('btn-danger');
@@ -96,6 +97,7 @@ function validate_form(){
 }
 
 function table_row_select(id){ 
+	reset();
 	populate_table_payment(id);
 	//ajax now
 	$.ajax ({
