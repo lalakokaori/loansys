@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 21, 2016 at 12:47 AM
+-- Generation Time: Mar 23, 2016 at 02:27 AM
 -- Server version: 5.6.28-0ubuntu0.15.10.1
 -- PHP Version: 5.6.11-1ubuntu3.1
 
@@ -59,8 +59,7 @@ CREATE TABLE IF NOT EXISTS `AccRecords` (
 --
 
 INSERT INTO `AccRecords` (`accrecords_id`, `accrecords_accounts_id`, `accrecords_loans_id`, `accrecords_balance`) VALUES
-('AR56ec0187914fa', 'ACC56ebf923bc149', 'LO56ec018788aef', 76000.00),
-('AR56eecf7814d0c', 'ACC56ebf923bc149', 'LO56eecf780cea8', 9000.00);
+('AR56f1802cd6d13', 'ACC56ebf923bc149', 'LO56f1802cc96ec', 6000.00);
 
 -- --------------------------------------------------------
 
@@ -144,10 +143,7 @@ CREATE TABLE IF NOT EXISTS `Loans` (
 --
 
 INSERT INTO `Loans` (`loans_id`, `loans_clients_id`, `loans_durations_id`, `loans_duration`, `loans_terms_id`, `loans_term`, `loans_loantypes_id`, `loans_interest`, `loans_amount`, `loans_transdate`, `loans_settledate`, `loans_status`) VALUES
-('LO56ebfa4ca9c81', 'CL56ebf94701eee', 'DR150001', 180, 'TR56eb9839bbd53', 30, 'LT1500001', 12, 123123.00, '2016-03-18', '2016-03-21', 'declined'),
-('LO56ec018788aef', 'CL56ebf923b3409', 'DR56eb9c7ebd79c', 365, 'TR150001', 7, 'LT1500001', 12, 76000.00, '2016-03-18', '2016-04-02', 'open'),
-('LO56ec02db8e35e', 'CL56ebf94701eee', 'DR56eb9c8ed901f', 725, 'TR150001', 7, 'LT150002', 15, 10000.00, '2016-03-18', '2016-03-19', 'declined'),
-('LO56eecf780cea8', 'CL56ebf923b3409', 'DR150001', 180, 'TR150001', 7, 'LT56eba24062df8', 13, 9000.00, '2016-03-21', '2016-03-28', 'open');
+('LO56f1802cc96ec', 'CL56ebf923b3409', 'DR150001', 180, 'TR56eb9839bbd53', 30, 'LT56eec75bef5fd', 0, 6000.00, '2016-03-23', '2016-03-23', 'open');
 
 -- --------------------------------------------------------
 
@@ -171,7 +167,10 @@ INSERT INTO `LoanTypes` (`loantypes_id`, `loantypes_name`, `loantypes_interest`,
 ('LT150002', 'Emergency', 15, 'active'),
 ('LT56eba1ea3ea2a', 'asdf', 12, 'inactive'),
 ('LT56eba24062df8', 'Educational', 13, 'active'),
-('LT56eec75bef5fd', 'Special', 0, 'active');
+('LT56eec75bef5fd', 'Special', 0, 'active'),
+('LT56f1100bb1721', 'Zido', 1, 'inactive'),
+('LT56f11036ea444', 'ZAIDO', 1, 'inactive'),
+('LT56f1104735805', 'asdf', 12, 'inactive');
 
 -- --------------------------------------------------------
 
@@ -186,6 +185,15 @@ CREATE TABLE IF NOT EXISTS `Payments` (
   `payments_amount` decimal(9,2) NOT NULL,
   `payments_type` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `Payments`
+--
+
+INSERT INTO `Payments` (`payments_id`, `payments_loans_id`, `payments_date`, `payments_amount`, `payments_type`) VALUES
+('PY56f18a7b707a5', 'LO56f1802cc96ec', '2016-03-23', 1000.00, 'cash'),
+('PY56f18cdadbdd4', 'LO56f1802cc96ec', '2016-03-23', 2000.00, 'cash'),
+('PY56f18e6b78307', 'LO56f1802cc96ec', '2016-03-23', 1000.00, 'cheque');
 
 -- --------------------------------------------------------
 
