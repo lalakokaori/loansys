@@ -65,21 +65,23 @@ function validate_form(){
 	return err;				
 }
 
-function table_row_select(id){
-
+function table_row_select(id){ 
 	//ajax now
 	$.ajax ({
 	  type: "POST",
-	  url: "../../model/payments/approve.php",
-	  data: 'id='+id,
-	  dataType: 'json',      
+	  url: "../../model/payments/select.php",
+	  dataType: 'json',
+	  data: 'id='+id,    
 	  cache: false,
-	  success: function(s){		
-			//POPULATE FIELDS HERE
+	  success: function(s){
+	  	$('#f_bb').val(comma(s[0][0]));
+	  	$('#f_balance').val(comma(s[0][1].toFixed(2)));
+	  	$('#f_perterm').val(s[0][2]);
 	  }  
 	}); 
-	//ajax end  	
-}
+	//ajax end  
+} //
+
 
 $('#btn_reset').click(function(){ reset(); })
 

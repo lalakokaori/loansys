@@ -10,7 +10,7 @@
   AND (LO.loans_loantypes_id = LT.loantypes_id)
   AND (LO.loans_durations_id = D.durations_id) 
   AND (LO.loans_terms_id = T.terms_id)
-	AND (LO.loans_status='open')
+	AND (LO.loans_status = 'open')
   GROUP BY loans_id 
   ORDER BY loans_transdate DESC, loans_status DESC";
 
@@ -26,8 +26,8 @@
     else if($fetch['loans_status']=='open' ){
       $status = $fetch['loans_status'];
 
-      if( ($fetch['loans_settledate']!=date() ) && $fetch['KURRENT']%$fetch['loans_term']==0 ){
-        $status= 'DUE [#'.$fetch['KURRENT']/$fetch['loans_term'].']' ;
+      if(($fetch['loans_settledate']!=DATE("Y-m-d")) && $fetch['KURRENT']%$fetch['loans_term']==0 ){
+        $status= 'DUE (#'.$fetch['KURRENT']/$fetch['loans_term'].')' ;
       }
 
     }
