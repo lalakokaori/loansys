@@ -3,10 +3,14 @@
 <div class="row" style="margin-bottom:5px"> <!-- ROW 1 -->
 
   <div class="col-sm-3 col-xs-12"  class='form-group'> 
-    <label>BEGINNING BALANCE</label> 
-    <input class="form-control input-lg" id="f_bb" disabled>
+    <label>ORIGINAL BALANCE</label> 
+    <input class="form-control input-lg" id="f_ob" disabled>
   </div>               
 
+  <div class="col-sm-3 col-xs-12"  class='form-group'> 
+    <label>BEGINNING BALANCE</label> 
+    <input class="form-control input-lg" id="f_bb" title="Interest Included" disabled>
+  </div>        
 
   <div class="col-sm-3 col-xs-12"  class='form-group'> 
     <label>REMAINING BALANCE</label> 
@@ -21,4 +25,38 @@
 
 </div> <!-- /.row -->   
 
+<hr>
 
+<div class="row" style="margin-bottom:5px"> <!-- ROW 1 -->
+	<div class="col-sm-6 col-xs-12">
+		<table id="table_payment" class="table table-condensed table-striped table-hover">
+			<thead>
+				<tr>
+					<th style="width:100px">Date</th>
+					<th style="width:100px">Amount</th>                    
+					<th style="width:60px">Type</th>
+				</tr>
+				<tbody></tbody>
+			</thead>
+		</table>
+	</div><!--col-sm-6-->
+
+   <div class="col-sm-2 col-xs-12" class='form-group'> 
+    <label>TYPE</label> 
+    <select class="form-control input-lg" id="f_type">
+			<option value="cash">CASH</option>
+			<option value="cheque">CHEQUE</option>
+		</select>
+  </div>               
+
+   <div class="col-sm-4 col-xs-12" class='form-group'> 
+    <label>PAYMENT (PER TERM)</label> 
+			<div class="input-group">
+					<input class="form-control input-lg" id="f_payment" title="Payment Amount" disabled>
+				<div class="input-group-btn">
+					<button id="f_btn_adv"  class="btn btn-lg btn-secondary"> <i class="fa fa-plus-circle" disabled></i>  ADVANCE </button>
+				</div>
+			</div>
+  </div>               
+
+</div>

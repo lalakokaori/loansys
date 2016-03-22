@@ -66,7 +66,6 @@
 
             <?php include('main_form.html'); ?>
 
-
                  <!-- /. ROW  -->
                   <hr />
 
