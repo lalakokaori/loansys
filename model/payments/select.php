@@ -20,7 +20,7 @@
     $perterm = round( $bb / round(($fetch['loans_duration']/$fetch['loans_term'])),1);
 
     $output[] = array ($fetch['accrecords_balance'],$bb,
-      ($bb-$fetch['totalpayment']),$perterm
+      ($bb-$fetch['totalpayment']),number_format($perterm,2)
       );          
   }         
 $conn = null;             

@@ -109,8 +109,8 @@ function table_row_select(id){
 	  	$('#f_ob').val(comma(s[0][0]  ));
 	  	$('#f_bb').val(comma(s[0][1].toFixed(2)   ));	  	
 	  	$('#f_balance').val(comma(s[0][2].toFixed(2)));
-	  	$('#f_perterm').val((comma(s[0][3]).toFixed(2)));
-	  	$('#f_payment').val((comma(s[0][3]).toFixed(2)));
+	  	$('#f_perterm').val((comma(s[0][3])));
+	  	$('#f_payment').val((comma(s[0][3])));
 	  }  
 	}); 
 	//ajax end  
