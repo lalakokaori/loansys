@@ -73,7 +73,7 @@ function reset(){
 	$('#btn_save').val('');
 
 	table_payment.fnClearTable();      
-
+	$('#btn_save').removeClass('btn-danger');
 	$('#f_ob').val('');
 	$('#f_bb').val('');
 	$('#f_balance').val('');
@@ -84,15 +84,13 @@ function reset(){
 function validate_form(){
 	err = false;
 
-	/*
-	if($('#f_client').val()=='none'){
+	if($('#btn_save').val() == ''){
 		err = true;
-		$('#f_client_div').addClass('has-error');
+		$('#btn_save').addClass('btn-danger');
 	}
-	else
-		$('#f_client_div').removeClass('has-error');		
-	*/
-
+	else{
+		$('#btn_save').removeClass('btn-danger');
+	}
 
 	return err;				
 }
@@ -112,6 +110,7 @@ function table_row_select(id){
 	  	$('#f_balance').val(comma(s[0][2].toFixed(2)));
 	  	$('#f_perterm').val((comma(s[0][3])));
 	  	$('#f_payment').val((comma(s[0][3])));
+			$('#btn_save').val(id);
 	  }  
 	}); 
 	//ajax end  
@@ -130,12 +129,17 @@ $('#f_btn_adv').click(function(){
 $('#btn_reset').click(function(){ reset(); })
 
 $('#btn_save').click(function(){
-
 	if(validate_form()==true){}
 	else{
 
-
-		if(this.value=='create'){ //CREATE MODE
+		var loan_id = $(this).val();
+		var payment_amount = uncomma($('#f_payment').val());
+		var payment_type = $('#f_type').val();
+		var dataString = 'loan_id='+loan_id+'&payment_amount='+payment_amount;
+		dataString+='&payment_type='+payment_type;
+	
+  var choice = confirm("Are you sure you want to Proceed?");
+  if(choice==true){
 			//ajax now
 			$.ajax ({
 			  type: "POST",
@@ -144,14 +148,12 @@ $('#btn_save').click(function(){
 			  dataType: 'json',      
 			  cache: false,
 			  success: function(s){		  	
-				alert('Success: Saved');
+				alert('DONE: Payment Complete');
 					reset();
 					populate_table_main();			  		
 			  }  
 			}); 
 			//ajax end  
-		}
-
+		} // confirmation
 	}
-
 })

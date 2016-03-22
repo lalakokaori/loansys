@@ -29,6 +29,7 @@
 
 <div class="row" style="margin-bottom:5px"> <!-- ROW 1 -->
 	<div class="col-sm-6 col-xs-12">
+		<div class="table-responsive" style="max-height:300px">
 		<table id="table_payment" class="table table-condensed table-striped table-hover">
 			<thead>
 				<tr>
@@ -39,6 +40,7 @@
 				<tbody></tbody>
 			</thead>
 		</table>
+		</div><!--table-responsive-->
 	</div><!--col-sm-6-->
 
    <div class="col-sm-2 col-xs-12" class='form-group'> 
@@ -49,7 +51,7 @@
 		</select>
   </div>               
 
-   <div class="col-sm-4 col-xs-12" class='form-group'> 
+   <div id="f_payment_div" class="col-sm-4 col-xs-12" class='form-group'> 
     <label>PAYMENT (PER TERM)</label> 
 			<div class="input-group">
 					<input class="form-control input-lg" id="f_payment" title="Payment Amount" disabled>
