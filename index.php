@@ -99,6 +99,10 @@
 
                     <?php if($_SESSION['loansys_user_type']=='ADMIN') { ?>
 
+                    <li>
+                        <a href="view/record/main.php"><i class="fa fa-book "></i>Records  <span class="badge">
+            REPORT</span> </a>
+                    </li>                   
 
 
                     <li>
@@ -176,7 +180,14 @@
 				<?php } ?>
 
 
-
+                  <div id="menu_records" class="col-lg-2 col-md-2 col-sm-2 col-xs-6" title="View Records Report">
+                      <div class="div-square">
+                         <a href="view/record/main.php" ><i class="fa fa-book fa-5x"></i>
+                           <h4>Records</h4>
+                         </a>
+                      </div>                                          
+                  </div> <!--col-->
+ 
                   <div id="menu_users" class="col-lg-2 col-md-2 col-sm-2 col-xs-6" title="Maintain User Accounts">
                       <div class="div-square">
                          <a href="view/user/main.php" ><i class="fa fa-users fa-5x"></i>

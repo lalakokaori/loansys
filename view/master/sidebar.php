@@ -28,7 +28,12 @@
 
 
     <?php if($_SESSION['loansys_user_type']=='ADMIN') { ?>
-        <li>
+			 <li>
+					<a href="../record/main.php"><i class="fa fa-book "></i>Records <span class="badge">
+            REPORT</span></a>
+			</li>
+
+       <li>
             <a href="../user/main.php"><i class="fa fa-users "></i>Users</a>
         </li>
 
