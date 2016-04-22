@@ -71,8 +71,8 @@ function populate_table_payment(id){
 
 function reset(){
 	$('#btn_save').val('');
-
-	table_payment.fnClearTable();      
+	populate_table_main();
+	table_payment.fnClearTable();  
 	$('#btn_save').removeClass('btn-danger');
 	$('#f_ob').val('');
 	$('#f_bb').val('');

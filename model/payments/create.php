@@ -11,14 +11,14 @@ $id = uniqid('PY');
 	  $q = $conn->prepare($sql);
 	  $q -> execute(array($id,$loan_id,$payment_amount,$payment_type));
 	    
-			/*
-		$sql = "UPDATE Loans SET loans_status = 'close' 
-		WHERE loans_id = ?     )  ";
+
+	  $sql = "UPDATE Loans SET loans_status = 'close' 
+	  WHERE loans_id = ? 
+	  AND ( (SELECT SUM(payments_amount) FROM Payments P WHERE P.payments_loans_id = loans_id) >= 
+	  (SELECT (accrecords_balance-(accrecords_balance*CONCAT('0.',loans_interest)) ) 
+	  FROM AccRecords AR WHERE AR.accrecords_loans_id = loans_id ) ) ";
 	  $q = $conn->prepare($sql);
-	  $q -> execute(array($id,$loan_id,$payment_amount,$payment_type));
-		foreach($browse as $fetch){
-			$output[] = array ($fetch['clients_id'],$fetch['clients_name']);				 	
-		}        */ 
+	  $q -> execute(array($loan_id));
 
 $conn = null;             
 

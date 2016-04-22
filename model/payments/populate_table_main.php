@@ -4,7 +4,7 @@
 
   $sql = "SELECT 
   loans_id,loans_transdate,loans_settledate,clients_name,loantypes_name,loans_interest, loans_term,
-  durations_name,terms_name,loans_amount,loans_status, (DATEDIFF(loans_settledate,CURDATE())) as KURRENT
+  durations_name,terms_name,loans_amount,loans_status, (DATEDIFF(CURDATE(),loans_settledate )) as KURRENT
   FROM Loans LO, LoanTypes LT, Clients CL, Durations D, Terms T 
   WHERE (LO.loans_clients_id = CL.clients_id) 
   AND (LO.loans_loantypes_id = LT.loantypes_id)
